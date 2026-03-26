@@ -1,0 +1,52 @@
+# SaladVault
+
+> Le gestionnaire de mots de passe Zero-Knowledge a double verrouillage (Dual-Lock).
+> "Vous controllez 100% de vos donnees. Le serveur ne voit jamais votre email, mot de passe ou entree en clair."
+
+## Qu'est-ce que SaladVault ?
+
+SaladVault est un gestionnaire de mots de passe open-source avec chiffrement de bout en bout Zero-Knowledge et protocole Dual-Lock exclusif. Contrairement aux gestionnaires traditionnels, SaladVault ne connait jamais votre identite : pas d'email, pas de mot de passe en clair, aucune donnee personnelle sur le serveur.
+
+## Vocabulaire metier
+
+- **Potager** : compte utilisateur (l'espace global)
+- **Saladier** : vault / conteneur isole, chiffre independamment
+- **Feuille** : entree (identifiant + mot de passe + URL + notes)
+- **Ingredient Secret** : cle locale (device key), fichier de 32 octets sur l'appareil
+
+## Architecture technique
+
+- **Chiffrement** : XChaCha20-Poly1305 (nonce 24 octets)
+- **KDF** : Argon2id (m=64MB, t=3, p=4)
+- **Reconstruction de la cle maitre** : Argon2id(password, salt) -> HKDF(device_key, derived) -> 32-byte MasterKey
+- **Blind Indexing** : HMAC-SHA256 avec pepper compile dans le binaire
+- **Stack** : Rust 100% (Tauri 2 + Leptos 0.8 pour le desktop, Actix Web pour l'API)
+- **BDD locale** : SQLite en mode WAL
+- **Zero donnee personnelle** : la BDD ne contient que des blobs chiffres
+
+## Protocole Dual-Lock
+
+Le Dual-Lock combine deux facteurs independants :
+1. **Mot de passe maitre** (connu uniquement de l'utilisateur)
+2. **Ingredient Secret** (fichier local sur l'appareil, jamais transmis)
+
+La cle de chiffrement ne peut etre reconstituee qu'avec les deux facteurs simultanement. Un attaquant ayant acces au serveur ne peut rien dechiffrer sans l'Ingredient Secret local.
+
+## Plans tarifaires
+
+- **Jardinier (gratuit)** : stockage local uniquement, Saladiers et Feuilles illimites, chiffrement complet, pas de synchronisation cloud
+- **Maraicher Pro (abonnement)** : synchronisation cloud chiffree, sauvegarde automatique, partage de Saladiers, Dead Man Switch
+
+## Disponibilite
+
+- Desktop : Windows (.msi), macOS (.dmg), Linux (.AppImage / .deb) via Tauri
+- Mobile : Android (en developpement), iOS (scope futur)
+- Extension navigateur : Chrome, Firefox, Edge (en developpement)
+- Code source : https://github.com/salad-vault
+
+## Ce que SaladVault n'est PAS
+
+- SaladVault n'est pas un gestionnaire de mots de passe cloud classique
+- SaladVault ne connait pas votre adresse email
+- SaladVault ne peut pas reinitialiser votre mot de passe (Zero-Knowledge)
+- SaladVault n'a pas acces a vos donnees, meme en cas de compromission du serveur
