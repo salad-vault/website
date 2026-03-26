@@ -66,7 +66,7 @@
     "vs_classic3": "Si piraté → toutes vos données exposées",
     "vs_classic4": "Vous LEUR faites confiance",
     "vs_sv1": "Double verrouillage (deux clés)",
-    "vs_sv2": "Une moitié chez vous, une moitié sur le serveur",
+    "vs_sv2": "Mot de passe maître + clé locale. Les deux restent chez vous, jamais sur nos serveurs.",
     "vs_sv3": "Si piraté → données inutilisables",
     "vs_sv4": "Vous ne faites confiance à PERSONNE",
     "zk_title": "Zero-Knowledge",
