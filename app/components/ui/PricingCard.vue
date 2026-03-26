@@ -9,6 +9,7 @@ defineProps<{
   badge?: string
   buttonText: string
   buttonDisabled?: boolean
+  buttonHref?: string
 }>()
 </script>
 
@@ -33,7 +34,17 @@ defineProps<{
         <span>{{ feat }}</span>
       </li>
     </ul>
+    <a
+      v-if="buttonHref"
+      :href="buttonHref"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="pricing-btn pricing-btn--link"
+    >
+      {{ buttonText }}
+    </a>
     <button
+      v-else
       class="pricing-btn"
       :class="{ 'pricing-btn--disabled': buttonDisabled }"
       :disabled="buttonDisabled"
@@ -151,5 +162,11 @@ defineProps<{
 .pricing-btn--disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+.pricing-btn--link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
 </style>

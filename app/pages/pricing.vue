@@ -52,6 +52,7 @@ function toggleFaq(i: number) {
               t('pricing.feat_recovery'),
             ]"
             :button-text="t('pricing.btn_download')"
+            :button-href="'https://github.com/salad-vault/tauri-app/releases'"
           />
           <UiPricingCard
             :name="t('pricing.plan_maraicher')"
@@ -66,8 +67,8 @@ function toggleFaq(i: number) {
             ]"
             :badge="t('pricing.recommended')"
             :highlighted="true"
-            :button-text="t('pricing.coming_soon')"
-            :button-disabled="true"
+            :button-text="t('pricing.btn_download_try')"
+            :button-href="'https://github.com/salad-vault/tauri-app/releases'"
           />
           <UiPricingCard
             :name="t('pricing.plan_familial')"
