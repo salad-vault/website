@@ -13,10 +13,16 @@ const featureCards = computed(() => [
     { title: t('features.feat_kdf'), desc: t('features.feat_kdf_desc') },
     { title: t('features.feat_recovery'), desc: t('features.feat_recovery_desc') },
     { title: t('features.feat_import'), desc: t('features.feat_import_desc') },
+    { title: t('features.feat_hidden'), desc: t('features.feat_hidden_desc') },
+    { title: t('features.feat_autolock'), desc: t('features.feat_autolock_desc') },
     { title: t('features.feat_clipboard'), desc: t('features.feat_clipboard_desc') },
     { title: t('features.feat_screenshot'), desc: t('features.feat_screenshot_desc') },
     { title: t('features.feat_deadman'), desc: t('features.feat_deadman_desc') },
     { title: t('features.feat_generator'), desc: t('features.feat_generator_desc') },
+    { title: t('features.feat_multisync'), desc: t('features.feat_multisync_desc') },
+    { title: t('features.feat_updater'), desc: t('features.feat_updater_desc') },
+    { title: t('features.feat_i18n'), desc: t('features.feat_i18n_desc') },
+    { title: t('features.feat_guide'), desc: t('features.feat_guide_desc') },
 ])
 </script>
 

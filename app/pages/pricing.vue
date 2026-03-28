@@ -50,6 +50,9 @@ function toggleFaq(i: number) {
               t('pricing.feat_passgen'),
               t('pricing.feat_import_export'),
               t('pricing.feat_recovery'),
+              t('pricing.feat_hidden_vaults'),
+              t('pricing.feat_autolock_pricing'),
+              t('pricing.feat_builtin_guide'),
             ]"
             :button-text="t('pricing.btn_download')"
             :button-href="'https://github.com/salad-vault/tauri-app/releases'"
