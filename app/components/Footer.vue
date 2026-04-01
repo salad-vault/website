@@ -17,7 +17,7 @@ const { t } = useI18n()
           <h4 class="footer-heading">{{ t('footer.security') }}</h4>
           <a href="https://github.com/salad-vault" target="_blank" rel="noopener noreferrer" class="footer-link">{{ t('footer.source_code') }}</a>
           <a href="https://github.com/salad-vault/tauri-app#readme" target="_blank" rel="noopener noreferrer" class="footer-link">{{ t('footer.crypto_docs') }}</a>
-          <span class="footer-link footer-link--disabled">{{ t('footer.audits') }}</span>
+          <NuxtLink to="/security" class="footer-link">{{ t('footer.audits') }}</NuxtLink>
         </div>
         <div class="footer-col">
           <h4 class="footer-heading">{{ t('footer.legal') }}</h4>
